@@ -60,6 +60,11 @@ ul li a:hover{
 .content{
     display: flex;
 }
+.content p{
+    font-style: italic;
+    font-size: 18px;
+    color: #115d94;
+}
 .content_add{
     text-align: center;
     padding: 65px 0;
@@ -71,6 +76,12 @@ ul li a:hover{
     margin: 10px;
     text-align: left;
     font-size: 20px;
+    color: rgb(18, 109, 79);
+}
+.add_wrap span{
+    text-decoration: underline;
+    font-weight: 600;
+    color: rgb(99, 9, 9);
 }
 article{
     width: 100%;
@@ -86,7 +97,18 @@ article{
     background: #fff;
     font-size: 22px;
     text-align: left;
-    background: #f1b534;;
+    background: #f1b534;
+    color: #fff;
+    font-style: italic;
+}
+.art_additional span{
+    text-decoration: overline;
+    color: rgb(15, 112, 15);
+    font-style: normal;
+}
+.art_additional #line-through{
+    color: rgb(255, 0, 0);
+    text-decoration: line-through;
 }
 h2{
     padding: 15px 0;
@@ -102,11 +124,17 @@ h2{
 }
 .box p{
     font-size: 20px;
+    font-weight: 700;
     padding: 40px 15px;
     text-align: left;
+    color: olive;
 }
 .box h3{
     color: #00c4b3;
+}
+.box span{
+    color: #ff0000;
+    text-decoration: line-through;
 }
 .footer{
     text-transform: uppercase;

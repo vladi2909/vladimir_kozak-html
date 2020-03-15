@@ -1,0 +1,239 @@
+body{
+    margin: 0;
+}
+header{
+    width: 1040px;
+    display: flex;
+    height: 261px;
+    background-size: contain;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #f5f5f2;
+    position: relative;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.button1, .button2, .button3, .button4, .button5, .button6{
+    transform: rotate(-5deg);
+}
+.button1 li, .button2 li, .button3 li, .button4 li, .button5 li,
+.button6 li{
+    background: url(icons.png) no-repeat;
+    background-size: 436px 576px;
+    display: block;
+    width: 90px;
+    width: 104px;
+}
+.button1 .a1{
+    height: 55px;
+    background-position: -324px -398px;
+}
+.button1 .a2{
+    height: 155px;
+    background-position: -324px -235px;
+}
+.button1 .a3{
+    height: 56px;
+    background-position: -324px -388px;
+}
+.button2{
+    margin-top: -15px;
+}
+.button2 li{
+    width: 225px;
+}
+.button2 .b1{
+    height: 124px;
+    background-position: -8px -93px;
+}
+.button2 .b2{
+    height: 170px;
+    background-position: -8px 6px;
+}
+.button3{
+    margin-top: -3px;
+}
+.button3 li{
+    width: 186px;
+}
+.button3 .c1{
+    height: 116px;
+    background-position: -231px -124px;
+}
+.button3 .c2{
+    height: 145px;
+    background-position: -231px -15px;
+}
+.button4{
+    margin-top: -8px;
+}
+.button4 li{
+    width: 187px;
+}
+.button4 .d1{
+    height: 104px;
+    background-position: 0 -365px;
+}
+.button4 .d2{
+    height: 200px;
+    background-position: 0 -243px;
+}
+.button5 li{
+    width: 234px;
+}
+.button5 .e1{
+    height: 52px;
+    background-position: -187px -392px
+}
+.button5 .e2{
+    height: 224px;
+    background-position: -186px -218px;
+}
+.button6{
+    margin-top: -6px;
+}
+.button6 li{
+    width: 130px;
+}
+.button6 .f1{
+    height: 125px;
+    background-position: 0 -98px;
+}
+.button6 .f2{
+    height: 143px;
+    background-position: 0 0;
+}
+.wrapper{
+    position: absolute;
+    width: 1040px;
+    height: 261px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.block{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 310px;
+    height: 100px;
+    background: #fff;
+    opacity: .96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.block_border{
+    width: 296px;
+    height: 86px;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.block_border span{
+    font-size: 36px;
+    text-align: center;
+    font-family: 'Satisfy',cursive;
+}
+article{
+    width: 1040px;
+    height: 240px;
+    border: 1px solid #ccc;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+}
+.buttons{
+    padding-left: 40px;
+}
+.buttons li{
+    background: url(task2.png) no-repeat;
+    background-size: 1020px 600px;
+    display: block;
+    width: 100px;
+    width: 100px;
+}
+.first_line, .second_line, .third_line{
+    display: flex;
+}
+.buttons .butt1{
+    width: 120px;
+    height: 40px;
+    background-position: -34px -233px;  
+}
+.buttons .butt1_2{
+    width: 67px;
+    height: 40px;
+    background-position: -154px -233px;
+}
+.buttons .butt2{
+    width: 62px;
+    height: 26px;
+    background-position: -34px -275px;
+}
+.buttons .butt2_2{
+    width: 62px;
+    height: 26px;
+    background-position: -96px -275px;
+}
+.buttons .butt3{
+    width: 73px;
+    height: 26px;
+    background-position: -34px -303px;
+}
+.buttons .butt3_3{
+    width: 68px;
+    height: 26px;
+    background-position: -107px -303px;
+}
+#black{
+    background: #333333;
+}
+#black .buttons li{
+    border-radius: 4px;
+}
+#black .buttons .butt1{
+    width: 117px;
+    height: 28px;
+    background-position: -36px -243px
+}
+#black .buttons .butt1_2{
+    width: 64px;
+    height: 18px;
+    background-position: -156px -253px;
+    margin-top: 10px;
+    margin-left: 3px;
+}
+#black .second_line{
+    margin-top: 8px;
+}
+#black .buttons .butt2{
+    width: 52px;
+    height: 17px;
+    background-position: -36px -418px;
+}
+#black .buttons .butt2_2{
+    width: 56px;
+    height: 18px;
+    margin-left: 4px;
+    background-position: -98px -282px;
+}
+#black .third_line{
+    margin-top: 8px;
+}
+#black .buttons .butt3{
+    width: 55px;
+    height: 17px;
+    background-position: -35px -443px;
+}
+#black .buttons .butt3_3{
+    width: 65px;
+    height: 17px;
+    margin-left: 4px;
+    background-position: -92px -442px;
+}
+

@@ -1,0 +1,145 @@
+body,ul,h1{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: sans-serif;
+}
+h1{
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 26px;
+}
+p{
+    border-radius: 5px;
+    color: #000;
+    padding: 18px;
+    margin: 10px;
+    text-align: center;
+    background: #fff;
+    text-align: center;
+}
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    font-family: 'Lato',sans-serif;
+    background: rgb(80, 79, 79);
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 35px;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center; 
+}
+ul li a{
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #fff;
+    transition: .3s;
+}
+ul li a:hover{
+    color: #f7a800;
+}
+.main{
+    padding: 75px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 60px 0;
+    text-align: center;
+}
+.content{
+    display: flex;
+}
+.content p{
+    font-style: italic;
+    font-size: 18px;
+    color: #115d94;
+}
+.content_add{
+    text-align: center;
+    padding: 65px 0;
+}
+.add_wrap{
+    display: flex;
+}
+.add_wrap p{
+    margin: 10px;
+    text-align: left;
+    font-size: 20px;
+    color: rgb(18, 109, 79);
+}
+.add_wrap span{
+    text-decoration: underline;
+    font-weight: 600;
+    color: rgb(99, 9, 9);
+}
+article{
+    width: 100%;
+    background-image: url(./bg.jpg);
+    background-repeat: repeat-y;
+}
+.art_additional{
+    display: flex;
+}
+.art_additional p{
+    margin: 10px;
+    padding: 20px;
+    background: #fff;
+    font-size: 22px;
+    text-align: left;
+    background: #f1b534;
+    color: #fff;
+    font-style: italic;
+}
+.art_additional span{
+    text-decoration: overline;
+    color: rgb(15, 112, 15);
+    font-style: normal;
+}
+.art_additional #line-through{
+    color: rgb(255, 0, 0);
+    text-decoration: line-through;
+}
+h2{
+    padding: 15px 0;
+}
+.box_cont{
+    display: flex;
+}
+.box{
+    flex: 1;
+}
+.box:nth-child(2) {
+    flex: 2;
+}
+.box p{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 40px 15px;
+    text-align: left;
+    color: olive;
+}
+.box h3{
+    color: #00c4b3;
+}
+.box span{
+    color: #ff0000;
+    text-decoration: line-through;
+}
+.footer{
+    text-transform: uppercase;
+    background: rgb(80, 79, 79);
+    text-align: center;
+    padding: 30px 0;
+    color: #67b2e8;
+}

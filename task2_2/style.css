@@ -1,112 +1,138 @@
-body{
+body {
     margin: 0;
 }
-header{
+
+header {
     width: 1040px;
-    display: flex;
     height: 261px;
-    background-size: contain;
+    position: relative;
+    display: flex;
     margin: 0 auto;
+    background-size: contain;
     overflow: hidden;
     background-color: #f5f5f2;
-    position: relative;
 }
-ul{
-    list-style-type: none;
+
+ul {
     margin: 0;
     padding: 0;
+    list-style-type: none;
 }
-.button1, .button2, .button3, .button4, .button5, .button6{
+
+.button1, .button2, .button3, .button4, .button5, .button6 {
     transform: rotate(-5deg);
 }
+
 .button1 li, .button2 li, .button3 li, .button4 li, .button5 li,
-.button6 li{
+.button6 li {
     background: url(icons.png) no-repeat;
     background-size: 436px 576px;
     display: block;
-    width: 90px;
     width: 104px;
 }
-.button1 .a1{
+
+.button1 .a1 {
     height: 55px;
     background-position: -324px -398px;
 }
-.button1 .a2{
+
+.button1 .a2 {
     height: 155px;
     background-position: -324px -235px;
 }
-.button1 .a3{
+
+.button1 .a3 {
     height: 56px;
     background-position: -324px -388px;
 }
-.button2{
+
+.button2 {
     margin-top: -15px;
 }
-.button2 li{
+
+.button2 li {
     width: 225px;
 }
-.button2 .b1{
+
+.button2 .b1 {
     height: 124px;
     background-position: -8px -93px;
 }
-.button2 .b2{
+
+.button2 .b2 {
     height: 170px;
     background-position: -8px 6px;
 }
-.button3{
+
+.button3 {
     margin-top: -3px;
 }
-.button3 li{
+
+.button3 li {
     width: 186px;
 }
-.button3 .c1{
+
+.button3 .c1 {
     height: 116px;
     background-position: -231px -124px;
 }
-.button3 .c2{
+
+.button3 .c2 {
     height: 145px;
     background-position: -231px -15px;
 }
-.button4{
+
+.button4 {
     margin-top: -8px;
 }
-.button4 li{
+
+.button4 li {
     width: 187px;
 }
-.button4 .d1{
+
+.button4 .d1 {
     height: 104px;
     background-position: 0 -365px;
 }
-.button4 .d2{
+
+.button4 .d2 {
     height: 200px;
     background-position: 0 -243px;
 }
-.button5 li{
+
+.button5 li {
     width: 234px;
 }
-.button5 .e1{
+
+.button5 .e1 {
     height: 52px;
     background-position: -187px -392px
 }
-.button5 .e2{
+
+.button5 .e2 {
     height: 224px;
     background-position: -186px -218px;
 }
-.button6{
+
+.button6 {
     margin-top: -6px;
 }
-.button6 li{
+
+.button6 li {
     width: 130px;
 }
-.button6 .f1{
+
+.button6 .f1 {
     height: 125px;
     background-position: 0 -98px;
 }
-.button6 .f2{
+
+.button6 .f2 {
     height: 143px;
     background-position: 0 0;
 }
-.wrapper{
+
+.wrapper {
     position: absolute;
     width: 1040px;
     height: 261px;
@@ -114,19 +140,19 @@ ul{
     align-items: center;
     justify-content: center;
 }
-.block{
+
+.block {
     position: absolute;
-    display: flex;
-    align-items: center;
     width: 310px;
     height: 100px;
-    background: #fff;
-    opacity: .96;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #fff;
+    opacity: .96;
 }
-.block_border{
+
+.block_border {
     width: 296px;
     height: 86px;
     border: 2px solid #000;
@@ -134,106 +160,91 @@ ul{
     align-items: center;
     justify-content: center;
 }
-.block_border span{
+
+.block_border span {
     font-size: 36px;
     text-align: center;
     font-family: 'Satisfy',cursive;
 }
-article{
+
+article {
     width: 1040px;
-    height: 240px;
-    border: 1px solid #ccc;
+    height: 190px;
     margin: 10px auto;
     display: flex;
     align-items: center;
-}
-.buttons{
-    padding-left: 40px;
-}
-.buttons li{
-    background: url(task2.png) no-repeat;
-    background-size: 1020px 600px;
-    display: block;
-    width: 100px;
-    width: 100px;
-}
-.first_line, .second_line, .third_line{
-    display: flex;
-}
-.buttons .butt1{
-    width: 120px;
-    height: 40px;
-    background-position: -34px -233px;  
-}
-.buttons .butt1_2{
-    width: 67px;
-    height: 40px;
-    background-position: -154px -233px;
-}
-.buttons .butt2{
-    width: 62px;
-    height: 26px;
-    background-position: -34px -275px;
-}
-.buttons .butt2_2{
-    width: 62px;
-    height: 26px;
-    background-position: -96px -275px;
-}
-.buttons .butt3{
-    width: 73px;
-    height: 26px;
-    background-position: -34px -303px;
-}
-.buttons .butt3_3{
-    width: 68px;
-    height: 26px;
-    background-position: -107px -303px;
-}
-#black{
-    background: #333333;
-}
-#black .buttons li{
-    border-radius: 4px;
-}
-#black .buttons .butt1{
-    width: 117px;
-    height: 28px;
-    background-position: -36px -243px
-}
-#black .buttons .butt1_2{
-    width: 64px;
-    height: 18px;
-    background-position: -156px -253px;
-    margin-top: 10px;
-    margin-left: 3px;
-}
-#black .second_line{
-    margin-top: 8px;
-}
-#black .buttons .butt2{
-    width: 52px;
-    height: 17px;
-    background-position: -36px -418px;
-}
-#black .buttons .butt2_2{
-    width: 56px;
-    height: 18px;
-    margin-left: 4px;
-    background-position: -98px -282px;
-}
-#black .third_line{
-    margin-top: 8px;
-}
-#black .buttons .butt3{
-    width: 55px;
-    height: 17px;
-    background-position: -35px -443px;
-}
-#black .buttons .butt3_3{
-    width: 65px;
-    height: 17px;
-    margin-left: 4px;
-    background-position: -92px -442px;
+    border: 1px solid #ccc;
 }
 
+.buttons {
+    padding-left: 40px;
+}
+
+a {
+    display: block;
+    font-family: sans-serif;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.first_line, .second_line, .third_line {
+    display: flex;
+    align-items: baseline;
+}
+
+.first_line .pink {
+    font-size: 22px;
+    padding: 4px 10px;
+    background: #e53ca0;
+}
+
+.first_line .green{
+    margin-left: 4px;
+    padding: 6px 9px;
+    font-size: 10px;
+    background: #a9cb40;
+}
+
+.second_line .red, .third_line .red{
+    padding: 6px 9px;
+    margin-top: 12px; 
+    margin-right: 4px;
+    font-size: 9px;
+    background: #ff0000;
+}
+
+.blue_small{
+    margin-right: 4px;
+    margin-top: 12px;
+    padding: 4px 8px; 
+    font-size: 8px;
+    background: #559be7;
+}
+
+#for_yellow #orange{
+    font-size: 6px;
+}
+#blue_bg{
+    background: #559be7;
+}
+
+#yellow{
+    background: #ffc037;
+}
+
+.blue_small#orange{
+    padding: 4px 11px;
+}
+
+#orange{
+    background: #ff762a;
+}
+
+#black {
+    background: #333333;
+}
+
+.footer{
+    height: 190px;
+}

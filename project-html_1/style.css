@@ -33,7 +33,7 @@
     background-size: 1150px 550px;
 }
 
-.page-column__logo {
+.page-column-logo {
     background-image: url(images/home-img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -43,7 +43,7 @@
     padding-left: 15%;
 }
 
-.page-column__logo-link {
+.page-column-logo__link {
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;

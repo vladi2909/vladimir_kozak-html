@@ -1,0 +1,27 @@
+@import 'blocks/grid.css';
+
+/*section*/
+
+@import 'blocks/header.css';
+
+@import 'blocks/skills.css';
+
+@import 'blocks/tiles.css';
+
+@import 'blocks/experiences.css';
+
+@import 'blocks/education.css';
+
+@import 'blocks/proin.css';
+
+@import 'blocks/form.css';
+
+@import 'blocks/footer.css';
+
+@import 'blocks/responsive.css';
+
+.page{
+    margin: 0 auto;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-size: 15px;
+}

@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML-Project_1</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
 <body class="page">
-    <div class="page-row">
-        <div class="page-column page-column_one-block">
-            <div class="page-column-logo">
-                <a class="page-column-logo__link" href="#">Stimulus</a>
+    <div class="header">
+        <div class="header-img">
+            <div class="logo">
+                <a class="logo__link" href="#">Stimulus</a>
             </div>
         </div>
-        <div class="page-column page-column_bg">
+        <div class="header-content">
             <div class="nav">
                 <a class="nav__item nav__item_active" href="#">Home</a>
                 <a class="nav__item" href="#about-me">About me</a>
@@ -25,54 +25,56 @@
             <div class="menu-icon-wrap">
                 <div class="menu-icon"></div>
             </div>
-            <div class="page-column-wrap">
-                <div class="page-column__subtitle">
+            <div class="header-content-wrap">
+                <div class="header-content__subtitle">
                     welcome to my website
                 </div>
-                <div class="page-column__title">
-                    Hello, I am <span class="page-column__bold">Stimulus</span> currently based in New York city.
+                <div class="header-content__title">
+                    Hello, I am 
+                    <span class="header-content__title-bold">Stimulus</span>
+                     currently based in New York city.
                 </div>
-                <div class="page-column__p">
+                <div class="header-content__p">
                     Donec auctor arcu at efficitur lacinia. Praesent bibendum efficitur ipsum,
                     et mattis tellus interdum in. Ut a dictum purus. Vestibulum non pellentesque
                     felis, sed dignissim urna. Vestibulum id accumsan quam.
                 </div>
-                <div class="page-button">
-                    <button class="page-button__button page-button__button_border">get started</button>
+                <div class="header-content-button">
+                    <button class="button">get started</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="page-row" id="about-me">
-        <div class="page-column page-column_for-resp">
-            <div class="content-item-wrap">
-                <div class="content-item-wrap__sub">
+    <div class="skills" id="about-me">
+        <div class="about-author">
+            <div class="content-wrap">
+                <div class="content-wrap__title content-wrap__title_black">
                     Donec auctor
                 </div>
-                <div class="content-item-wrap__subsub content-item-wrap__subsub_gold">
+                <div class="content-wrap__subtitle content-wrap__subtitle_orange">
                     Sed vulputate vitae diam quis bibendum
                 </div>
-                <div class="content-item-wrap__p content-item-wrap__p_grey">
+                <div class="about-author__p">
                     Phasellus vulputate tellus nec tortor varius elementum. Curabitur at pulvinar ante.
                     Duis dui urna, faucibus eget felis eu, iaculis congue sem. Mauris convallis eros massa.
                 </div>
-                <div class="content-item-wrap__p content-item-wrap__p_grey">
-                    Quisque viverra iaculis aliquam. Etiam volutpat, justo non aliquam bibendum, sem
-                    nibh mollis erat, quis porta odio odio at velit.
+                <div class="about-author__p">
+                    Phasellus vulputate tellus nec tortor varius elementum. Curabitur at pulvinar ante.
+                    Duis dui urna, faucibus eget felis eu, iaculis congue sem. Mauris convallis eros massa.
                 </div>
             </div>
         </div>
-        <div class="page-column page-column_for-two page-column_for-resp">
-            <div class="column-form column-form_bg1"></div>
-            <div class="column-form column-form_orange">
-                <div class="content-item-wrap">
-                    <div class="content-item-wrap__sub content-item-wrap__sub_white">
+        <div class="about-skills">
+            <div class="skills-bg"></div>
+            <div class="skills-content">
+                <div class="content-wrap">
+                    <div class="content-wrap__title">
                         My Skills
                     </div>
-                    <div class="content-item-wrap__subsub content-item-wrap__subsub_white">
+                    <div class="content-wrap__subtitle content-wrap__subtitle_small">
                         Photoshop.HTML.CSS JS.Web Design
                     </div>
-                    <div class="progress">
+                    <div class="progress progress_small">
                         <div class="progress__name">Frontend Design</div>
                         <div class="progress__max">90%</div>
                     </div>
@@ -81,7 +83,7 @@
                             <div class="bar__span"></div>
                         </div>
                     </div>
-                    <div class="progress">
+                    <div class="progress progress_small">
                         <div class="progress__name">Backend processing</div>
                         <div class="progress__max">70%</div>
                     </div>
@@ -90,7 +92,7 @@
                             <div class="bar__span bar__span_70"></div>
                         </div>
                     </div>
-                    <div class="progress">
+                    <div class="progress progress_small">
                         <div class="progress__name">HTML5&CSS3</div>
                         <div class="progress__max">80%</div>
                     </div>
@@ -103,73 +105,71 @@
             </div>
         </div>
     </div>
-    <div class="page-row">
-        <div class="content-item content-item_orange">
-            <div class="content-item-wrap">
-                <div class="content-item-wrap__icon"><i class="fas fa-desktop"></i></div>
-                <div class="content-item-wrap__substr">Interface Design</div>
-                <div class="content-item-wrap__p">
+    <div class="tiles">
+        <div class="tiles-item tiles-item_orange">
+            <div class="content-wrap">
+                <div class="tiles-item__icon"><i class="fas fa-desktop"></i></div>
+                <div class="tiles-item__title">Interface Design</div>
+                <div class="tiles-item__p">
                     Phasellus vulputate tellus nec tortor varius elementum. Curabitur at pulvinar ante.
                 </div>
             </div>
         </div>
-        <div class="content-item content-item_red">
-            <div class="content-item-wrap">
-                <div class="content-item-wrap__icon"><i class="fas fa-paper-plane"></i></div>
-                <div class="content-item-wrap__substr">Media Strategy</div>
-                <div class="content-item-wrap__p">
+        <div class="tiles-item tiles-item_red">
+            <div class="content-wrap">
+                <div class="tiles-item__icon"><i class="fas fa-paper-plane"></i></div>
+                <div class="tiles-item__title">Media Strategy</div>
+                <div class="tiles-item__p">
                     Curabitur at pulvinar ante. Duis dui urna, faucibus eget felis eu, iaculis
                     congue sem.
                 </div>
             </div>
         </div>
-        <div class="content-item content-item_black">
-            <div class="content-item-wrap">
-                <div class="content-item-wrap__icon"><i class="fas fa-table"></i></div>
-                <div class="content-item-wrap__substr">Mobile App</div>
-                <div class="content-item-wrap__p">
+        <div class="tiles-item tiles-item_black">
+            <div class="content-wrap">
+                <div class="tiles-item__icon"><i class="fas fa-table"></i></div>
+                <div class="tiles-item__title">Mobile App</div>
+                <div class="tiles-item__p">
                     Mauris convallis eros massa, vitae euismod arcu tempus ut. Quisque viverra iaculis.
                 </div>
             </div>
         </div>
-        <div class="content-item content-item_grey">
-            <div class="content-item-wrap">
-                <div class="content-item-wrap__icon"><i class="fab fa-html5"></i></div>
-                <div class="content-item-wrap__substr">
-                    Coding
-                </div>
-                <div class="content-item-wrap__p">
+        <div class="tiles-item tiles-item_white">
+            <div class="content-wrap">
+                <div class="tiles-item__icon"><i class="fab fa-html5"></i></div>
+                <div class="tiles-item__title">Coding</div>
+                <div class="tiles-item__p tiles-item__p_grey">
                     Mauris convallis eros massa, vitae euismod arcu tempus ut. Quisque viverra iaculis.
                 </div>
             </div>
         </div>
     </div>
-    <div class="page-row" id="experiences">
-        <div class="page-column page-column_backg"></div>
-        <div class="page-column page-column_orange">
-            <div class="content-item-wrap">
-                <div class="content-item-wrap__sub">
+    <div class="experiences">
+        <div class="experiences-img"></div>
+        <div class="experiences-content" id="experiences">
+            <div class="content-wrap">
+                <div class="content-wrap__title">
                     My Experiences
                 </div>
-                <div class="content-item-wrap__subsub">
+                <div class="content-wrap__subtitle">
                     Previous companies and my tasks
                 </div>
                 <div class="block-designer">
                     <div class="block-designer__icon"><i class="fas fa-laptop"></i></div>
-                    <div class="sub-block-designer">
-                        <div class="sub-block-designer__sub">Graphic Designer</div>
-                        <div class="sub-block-designer__span">2014 Jul-2015 Sep</div>
-                        <div class="sub-block-designer__p">
+                    <div class="block-item">
+                        <div class="block-designer__sub">Graphic Designer</div>
+                        <div class="block-designer__span">2014 Jul-2015 Sep</div>
+                        <div class="block-designer__p">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit
                         </div>
                     </div>
                 </div>
                 <div class="block-designer">
                     <div class="block-designer__icon"><i class="fas fa-laptop"></i></div>
-                    <div class="sub-block-designer">
-                        <div class="sub-block-designer__sub">Web Designer</div>
-                        <div class="sub-block-designer__span">2015 Oct-2017 Jan</div>
-                        <div class="sub-block-designer__p">
+                    <div class="block-item">
+                        <div class="block-designer__sub">Web Designer</div>
+                        <div class="block-designer__span">2015 Oct-2017 Jan</div>
+                        <div class="block-designer__p">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit
                         </div>
                     </div>
@@ -177,21 +177,21 @@
             </div>
         </div>
     </div>
-    <div class="page-row" id="testimonial">
-        <div class="page-column page-column_yellow">
-            <div class="content-item-wrap">
-                <div class="content-item-wrap__sub">
+    <div class="education">
+        <div class="education-content">
+            <div class="content-wrap">
+                <div class="content-wrap__title">
                     My Education
                 </div>
-                <div class="content-item-wrap__subsub">
+                <div class="content-wrap__subtitle">
                     In cursus orci non ipsum gravida dignissim
                 </div>
                 <div class="block-designer">
                     <div class="block-designer__icon"><i class="fas fa-laptop"></i></div>
-                    <div class="sub-block-designer">
-                        <div class="sub-block-designer__sub">Master in Design</div>
-                        <div class="sub-block-designer__span">2012 Jan-2014 May</div>
-                        <div class="sub-block-designer__p">
+                    <div class="block-item">
+                        <div class="block-designer__sub">Master in Design</div>
+                        <div class="block-designer__span">2012 Jan-2014 May</div>
+                        <div class="block-designer__p">
                             Etiam iaculis elit in mauris ullamcorpeer auctor. Proin a sapien id orci
                             ullamcorper dignissim eu in neque.
                         </div>
@@ -199,10 +199,10 @@
                 </div>
                 <div class="block-designer">
                     <div class="block-designer__icon"><i class="fas fa-laptop"></i></div>
-                    <div class="sub-block-designer">
-                        <div class="sub-block-designer__sub">Bachelor of Arts</div>
-                        <div class="sub-block-designer__span">2008 May-2011 Dec</div>
-                        <div class="sub-block-designer__p">
+                    <div class="block-item">
+                        <div class="block-designer__sub">Bachelor of Arts</div>
+                        <div class="block-designer__span">2008 May-2011 Dec</div>
+                        <div class="block-designer__p">
                             Orci varius natoque penatibus et magnis dis parturient montes, nascetur
                             ridiculus mus.
                         </div>
@@ -210,56 +210,50 @@
                 </div>
             </div>
         </div>
-        <div class="page-column page-column_backg2"></div>
+        <div class="education-img"></div>
     </div>
-    <div class="page-row">
-        <div class="proin">
-            <div class="proin-dark">
-                <div class="proin-wrap">
-                    <div class="proin-dark__star"><i class="fas fa-star"></i></div>
-                    <div class="proin-dark__title">
-                        Proin lobortis eu diam et facilisis. Fusce nisi nibh, molestie in vestibulum quis, auctor
-                        et orci.
-                    </div>
-                <div class="proin-dark__p">
-                   Curabitur at pulvinar ante. Duis dui urna, faucibus eget felis eu, iaculis congue sem.
+    <div class="proin" id="testimonial">
+        <div class="proin-dark">
+            <div class="proin-wrap">
+                <div class="proin-dark__star"><i class="fas fa-star"></i></div>
+                <div class="proin-dark__title">
+                    Proin lobortis eu diam et facilisis. Fusce nisi nibh, molestie in vestibulum quis, auctor
+                    et orci.
                 </div>
-                </div>
+            <div class="proin-dark__p">
+               Curabitur at pulvinar ante. Duis dui urna, faucibus eget felis eu, iaculis congue sem.
+            </div>
             </div>
         </div>
     </div>
-    <div class="page-row" id="contact">
-        <div class="page-column page-column_orange page-column_orange-resp">
-            <div class="content-item-wrap">
-                <div class="content-item-wrap__sub">
+    <div class="form">
+        <div class="form-content">
+            <div class="content-wrap">
+                <div class="content-wrap__title">
                     Say hello..
                 </div>
-                <div class="content-item-wrap__subsub">
+                <div class="content-wrap__subtitle">
                     Integer ut consectetur est. In cursus orci non ipsum gravida dignissim.
                 </div>
                 <form action="" class="search">
                     <input type="text" class="search__input" placeholder="Your Name">
                     <input type="text" class="search__input" placeholder="Your Email">
-                    <textarea name="" class="search__input" cols="30" rows="10" placeholder="Write your message..."></textarea>
-                    <div class="page-button">
-                        <button class="page-button__button page-button__button_white">Send</button>
+                    <textarea name="" class="search__input" cols="30" rows="6" placeholder="Write your message..."></textarea>
+                    <div class="header-content-button">
+                        <button class="button button_white">Send</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="page-column page-column_form">
-            <div class="column-form column-form_bg"></div>
-            <div class="column-form column-form_visit">
-                <div class="content-item-wrap">
-                    <div class="block-contact__title">
-                        Visit my office
-                    </div>
-                    <div class="content-item-wrap__subsub content-item-wrap__subsub_grey">
+        <div class="office">
+            <div class="office-img"></div>
+            <div class="office-content" id="contact">
+                <div class="content-wrap">
+                    <div class="office-title">Visit my office</div>
+                    <div class="content-wrap__subtitle content-wrap__subtitle_grey">
                         456 New Street 22000, New York City, USA
                     </div>
-                    <div class="block-contact__title">
-                        Contact
-                    </div>
+                    <div class="office-title office-title_margin">Contact.</div>
                     <a class="details" href="tel:0101100220">
                         <div class="details__icon"><i class="fas fa-phone-alt"></i></div>
                         <div class="details__number">01-0110-0220</div>
@@ -276,7 +270,7 @@
             </div>
         </div>
     </div>
-    <div class="page-footer">
+    <div class="footer">
         <div class="footer-wrap">
             <div class="foot-content">
                 <div class="foot-content__text">
@@ -302,7 +296,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
     <script src="https://kit.fontawesome.com/4d6e25843c.js" crossorigin="anonymous"></script>
     <script>

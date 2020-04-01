@@ -1,1 +1,56 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2_1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div>
+                <span id="heading">Form Action </span>
+                <span id="bg_action">_mc4wp_action</span>
+                <p>This field will allow your visitors to choose whether they would like to subscribe or unsubscribe</p>
+            </div>
+                <label>Field Label
+                    <input type="text" placeholder="Form Action" id="input">
+                </label>
+                <label>Choice Type
+                    <div class="select">
+                        <select>
+                            <option value="2">Radio Buttons</option>
+                            <option value="3">Radio Buttons2</option>
+                        </select>
+                    </div>
+                </label>
+               <label>Choices</label>
+                <fieldset>
+                    <div class="radio">
+                        <input type="radio" class="radio_input" id='radio_1'>
+                        <label class="radio_label" for="radio_1">Subscribe</label>
+                        <button class="toggleChechbox1" type="button" id="toggle1">&#10006;</button>
+                        <input type="radio" class="radio_input2" id='radio_2'>
+                        <label class="radio_label2" for="radio_2">Unsubscribe</label>
+                        <button class="toggleChechbox2" type="button" id="toggle2">&#10006;</button>
+                    </div> 
+                </fieldset>
+                <div class="checkbox">
+                    <input type="checkbox" checked class="checkbox_input" id="checkbox1">
+                    <label for="checkbox1" class="checkbox_label">Wrap in paragraph tags?</label>
+                </div>
+                <button type="submit" id="button">Add to form</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('toggle1').onclick = function(){
+        var checkbox = document.getElementById('radio_1').checked = false;
+        }
+        document.getElementById('toggle2').onclick = function(){
+        var checkbox = document.getElementById('radio_2').checked = false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+.experiences {
+    display: flex;
+}
+
+.experiences-img {
+    background-image: url(../../images/experience-img.jpg);
+    background-size: cover;
+    width: 50%;
+
+}
+
+.experiences-content {
+    width: 50%;
+    background-color: #e9714c;
+}
+
+.block-designer {
+    padding-top: 20px;
+    display: flex;
+}
+
+.block-item {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15px;
+    align-items: center;
+}
+
+.block-designer__span {
+    color: #5c2f34;
+    padding-left: 15px;
+    padding-top: 2px;
+    font-weight: 600;
+    font-size: .9em;
+}
+
+.block-designer__p {
+    padding-top: 4px;
+    color: #fff;
+}
+
+.block-designer__icon {
+    font-size: 1.2em;
+    margin-top: 3px;
+    color: #fff;
+}
+
+.block-designer__sub {
+    font-size: 1.3em;
+    color: #fff;
+}

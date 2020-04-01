@@ -1,0 +1,81 @@
+.skills {
+    display: flex;
+}
+
+.about-author {
+    width: 50%;
+}
+
+.content-wrap__title_black {
+    font-size: 1.8em;
+    color: #000;
+}
+
+.content-wrap__subtitle_orange {
+    color: #ecbb5e;
+}
+
+.about-author__p {
+    margin-top: 30px;
+    color: #a3a3a3;
+}
+
+.about-skills {
+    display: flex;
+    width: 50%;
+}
+
+.skills-bg {
+    background-image: url(../../images/about-img.jpg);
+    background-size: 1150px 550px;
+    background-position: top center;
+    width: 50%;
+}
+
+.skills-content {
+    width: 50%;
+    background-color: #e4ae58;
+}
+
+.content-wrap__subtitle_small {
+    font-size: .8em;
+}
+
+.progress_small {
+    font-size: .8em;
+}
+
+.progress {
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress__name {
+    color: #000;
+    font-weight: 600;
+}
+
+.progress__max {
+    color: #fff;
+}
+
+.bar {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+}
+
+.bar__span {
+    width: 90%;
+    height: 2px;
+    background-color: #000;
+}
+
+.bar__span_70 {
+    width: 70%;
+}
+
+.bar__span_80 {
+    width: 80%;
+}

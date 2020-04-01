@@ -1,0 +1,13 @@
+.content-wrap {
+    padding: 45px 30px;
+}
+
+.content-wrap__title {
+    font-size: 1.8em;
+    color:#fff;
+}
+
+.content-wrap__subtitle {
+    margin-top: 20px;
+    color: #fff;
+}

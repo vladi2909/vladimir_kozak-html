@@ -1,0 +1,43 @@
+.tiles {
+    display: flex;
+    width: 100%;
+}
+.tiles-item {
+    flex-grow: 1;
+    text-align: center;
+    color: #fff;
+}
+
+.tiles-item__icon {
+    font-size: 2em;
+}
+
+.tiles-item_orange {
+    background-color: #e4ae58;
+}
+
+.tiles-item_red {
+    background-color: #e9714c;
+}
+
+.tiles-item_black {
+    background-color: #161616;
+}
+
+.tiles-item_white {
+    color: #161616;
+}
+
+.tiles-item__p_grey {
+    color: #3b3446;
+}
+
+.tiles-item__title {
+    padding-top: 20px;
+    font-size: 1.2em;
+}
+
+.tiles-item__p {
+    padding-top: 20px;
+    font-size: .9em;
+}

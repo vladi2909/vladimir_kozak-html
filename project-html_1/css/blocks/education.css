@@ -1,0 +1,14 @@
+.education {
+    display: flex;
+}
+
+.education-img {
+    background-image: url(../../images/education-img.jpg);
+    background-size: cover;
+    width: 50%;
+}
+
+.education-content {
+    width: 50%;
+    background-color: #e4ae58;;
+}

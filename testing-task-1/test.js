@@ -1,6 +1,6 @@
 describe("sum", function() {
 
-  describe("для целых чисел:", function() {
+  describe("for integer:", function() {
 
     it("test1", function() {
       assert.equal(sum(10, 10), 20);
@@ -12,7 +12,7 @@ describe("sum", function() {
 
   });
 
-  describe("Для дробных чисел:", function() {
+  describe("for floats:", function() {
 
     it('test1', function() {
       assert.equal(sum(1.25, 3.35), 4.6);
@@ -20,7 +20,7 @@ describe("sum", function() {
 
   });
 
-  describe("На число в строке:", function() {
+  describe("number in a line:", function() {
 
     it('test1', function() {
       assert.equal(sum('3', 4), 7);
@@ -28,7 +28,7 @@ describe("sum", function() {
 
   });
 
-  describe("На строку:", function() {
+  describe("for line:", function() {
 
     it('test1', function() {
       assert.equal(sum('odin', 1), false);

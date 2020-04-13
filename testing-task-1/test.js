@@ -31,7 +31,7 @@ describe("sum", function() {
   describe("for line:", function() {
 
     it('test1', function() {
-      assert.equal(sum('odin', 1), false);
+      assert.equal(sum('odin', 1), 'NaN');
     });
 
   });
@@ -47,7 +47,7 @@ describe("sum", function() {
     });
 
     it('test3', function() {
-      assert.equal(sum(undefined, 1), false);
+      assert.equal(sum(undefined, 1), 'NaN');
     });
 
   });

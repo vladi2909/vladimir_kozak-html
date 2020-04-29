@@ -2,6 +2,7 @@ const getBtn = document.getElementById('getBtn');
 const postBtn = document.getElementById('postBtn');
 const putBtn = document.getElementById('putBtn');
 const delBtn = document.getElementById('delBtn');
+const result = document.getElementById('result');
 
 const requestURL = 'https://jsonplaceholder.typicode.com/users';
 const item = '/1';
@@ -34,11 +35,10 @@ const getData = () => {
     sendHttpRequest('GET', requestURL)
         .then(res => {
             res.map(user => {
-                console.log(`${user.id}: ${user.name},  ${user.address.street}`);
+                result.innerHTML += `<p>${user.id}: Name: ${user.name}, Surname: ${user.username}, Address: ${user.address.street}</p>`;
             });
         });
 };
-
 
 // POST
 
@@ -48,7 +48,7 @@ const sendData = () => {
         username: 'Kozak'
     })
     .then(resData => {
-        console.log(resData);
+        result.innerHTML += `<p>POST DATA: ${resData.id}: ${resData.name}, ${resData.username}</p>`;
     })
     .catch(err => {
         console.log(err, err.data);
@@ -64,7 +64,7 @@ const putData = () => {
         username: 'Kozak',
         job: 'student'
     }).then(res => {
-        console.log('put: ', res);
+        result.innerHTML += `<p>UPDATE: ${res.name} ${res.job}</p>`;
     })
 };
 
@@ -73,8 +73,8 @@ const putData = () => {
 
 const delData = () => {
     sendHttpRequest('DELETE', requestURL + item)
-    .then(res => {
-        console.log('data deleted');
+    .then(() => {
+        result.innerHTML += 'DATA DELETED';
     })
 };
 

@@ -1,121 +1,177 @@
-const requestURL = 'https://jsonplaceholder.typicode.com/users';
-const item = '/1';
+function toString(o) {
+    return Object.prototype.toString.call(o);
+  }
+  
+  function isString(o) {
+    return typeof o === 'string';
+  }
+  
+  function isBlob(o) {
+    return toString(o) === '[object Blob]';
+  }
+  
+  function isFormData(o) {
+    return toString(o) === '[object FormData]';
+  }
+  
+  function isURLSearchParams(o) {
+    return toString(o) === '[object URLSearchParams]';
+  }
+  
+  function isRequest(o) {
+    return o && o instanceof Request;
+  }
+  
+const module = (function() {
 
-const module = (function () {
-    
     return {
 
-        privateClass: class Singleton {
-            constructor() {
-                const instance = this.constructor.instance;
-                if (instance) {
-                    return instance;
-                }
+      privateFetchClient: class FetchClient {
+          
+          constructor(options = {}) {
+             
+              const instance = this.constructor.instance;
+              if (instance) {
+                  return instance;
+              }
 
-                this.constructor.instance = this;
-            }
-
-
-            // CREATE
-
-            sendHttpRequest(method, url, data) {
-                return fetch(url, {
-                    method: method,
-                    body: JSON.stringify(data),
-                    headers: data ? {'Content-Type': 'application/json'} : {}
-                }).then(res => {
-                    if (res.status >= 400) {
-                        // !response.ok
-                        return res.json().then(errResData => {
-                            const  error = new Error('Something went wrong...');
-                            error.data = errResData;
-                            throw error;
-                        });
-                    }
-                    return res.json();
-                });
-            }
-
-
-            // GET
-
-            getData() {
-                return this.sendHttpRequest('GET', requestURL)
-                    .then(res => {
-                        res.map(user => {
-                            resultDiv.innerHTML += `<p>${user.id}: Name: ${user.name}, Surname: ${user.username}, Address: ${user.address.street}</p>`;
-                        });
-                    });
-            } 
+              this.constructor.instance = this;
+              this.options = options;
+              this.middlewares = [];
+          }
         
-
-            // POST
-
-            sendData() {
-                return this.sendHttpRequest('POST', requestURL, {
-                    name: 'Vladimir',
-                    username: 'Kozak'
-                })
-                .then(resData => {
-                    resultDiv.innerHTML += `<p> POST DATA: ${resData.id}: ${resData.name}, ${resData.username} </p>`;
-                })
-                .catch(err => {
-                    console.log(err, err.data);
-                });
+        
+          createRequest(url, options, method, data) {
+        
+              options = { ...this.options, ...options };
+        
+              options.method = method || options.method;
+              if (!options.method) {
+                  options.method = !data && !options.body ? 'GET' : 'POST';
+              }
+        
+              if (data) {
+                  if (isString(data) ||
+                  isFormData(data) ||
+                  isURLSearchParams(data) ||
+                  isBlob(data)) {
+                      options.body = data;
+              } else {
+                  try {
+                      options.body = JSON.stringify(data);
+                  } catch (e) {
+                      options.body = data;
+                  }
+               }
+              }
+        
+            return new Request(url, options);
+          }
+        
+          request(urlOrRequest, ...args) {
+        
+            const req = isRequest(urlOrRequest)
+              ? urlOrRequest
+              : this.createRequest(urlOrRequest, ...args);
+        
+            let promise = Promise.resolve(req);
+        
+            let chains   = [fetch, null];
+            let sequence = this.middlewares;
+            let reversed = [];
+        
+            sequence.forEach(middleware => reversed.unshift(middleware));
+        
+            reversed.forEach(({ request, requestError }) => {
+        
+              if (requestError) {
+                chains.unshift(null, requestError);
+              }
+        
+              if (request) {
+                chains.unshift(request, null);
+              }
+            });
+        
+            sequence.forEach(({ response, responseError }) => {
+        
+              if (response) {
+                chains.push(response, null);
+              }
+        
+              if (responseError) {
+                chains.push(null, responseError);
+              }
+            });
+        
+            while (chains.length) {
+              promise = promise.then(chains.shift(), chains.shift());
             }
-
-
-            // PUT
-
-            putData() {
-                return this.sendHttpRequest('PUT', requestURL + item, {
-                    name: 'Vladimir',
-                    username: 'Kozak',
-                    job: 'student'
-                }).then(res => {
-                    resultDiv.innerHTML += `<p> PUT: Name: ${res.name}, Job: ${res.job} </p>`;
-                });
-            }
-
-
-            // DELETE
-
-            delData() {
-                return this.sendHttpRequest('DELETE', requestURL + item)
-                    .then(() => {
-                        resultDiv.innerHTML += 'DATA DELETED';
-                    })
-                }
-            }
+        
+            return promise;
+          }
+        
+          fetch(url, options) {
+            return this.request(url, options);
+          }
+        
+          get(url, options) {
+            return this.request(url, options, 'GET');
+          }
+        
+          delete(url, options) {
+            return this.request(url, options, 'DELETE');
+          }
+        
+          put(url, data, options) {
+            return this.request(url, options, 'PUT', data);
+          }
+        
+          post(url, data, options) {
+            return this.request(url, options, 'POST', data);
+          }
+        }
     }
 })();
-
-let user = new module.privateClass();
-let user2 = new module.privateClass();
+  
+  
+const user = new module.privateFetchClient();
+const user2 = new module.privateFetchClient();
 console.log(user === user2); //true
 
 
-// BUTTONS
+user.get('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(json => console.log(json))
+   
 
-const getBtn = document.getElementById('getBtn');
-getBtn.onclick = function() {
-    user.getData();
-}
+user.post('https://jsonplaceholder.typicode.com/users', {
+    param1: 'param1',
+    param2: 'param2'
+}).then((responce) => responce.json())
+  .then(json => console.log(json))
+  .catch((error) => console.log(error));
 
-const sendBtn = document.getElementById('sendBtn');
-sendBtn.onclick = function() {
-    user.sendData();
-}
 
-const putBtn = document.getElementById('putBtn');
-putBtn.onclick = function() {
-    user.putData();
-}
+user.put('https://jsonplaceholder.typicode.com/users/1', {
+    param2: 'param2',
+    param3: 'param3'
+    }).then((responce) => responce.json())
+    .then(json => console.log(json))
+    .catch((error) => console.log(error));
+    
 
-const delBtn = document.getElementById('delBtn');
-delBtn.onclick = function() {
-    user.delData();
-}
 
-const resultDiv = document.getElementById('resultDiv');
+user.delete('https://jsonplaceholder.typicode.com/users/1')
+    .then((response) => console.log(response));
 
+
+
+let fetchClient = new module.privateFetchClient({
+    headers: {
+      'X-Custom-Header': 'foobar'
+    }
+  });
+
+fetchClient.get('https://jsonplaceholder.typicode.com/users')
+  .then((response) => { console.log(response) });

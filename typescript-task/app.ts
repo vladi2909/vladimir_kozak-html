@@ -14,7 +14,7 @@ class Animal implements IAnimal{
     constructor(public id: number, public type: string) {
     }
 
-    static isAnimal(obj: object) {
+    static isAnimal(obj: IAnimal) {
         if( !Animal.prototype.isPrototypeOf(obj)) {
             return false;
         }
@@ -46,7 +46,7 @@ class Cat extends Animal {
         console.log('The cat ' + this._name + ' is a ' + this._breed);
     }
 
-    static isCat(obj: object) {
+    static isCat(obj: Cat) {
         return Animal.isAnimal(obj);
     }
 }

@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "experimentalDecorators": true,
+        "outFile": "dist/index.js",
+        "watch": true,
+        "sourceMap": true
+    },
+    "include": [
+        "./**/*"
+    ]
+}

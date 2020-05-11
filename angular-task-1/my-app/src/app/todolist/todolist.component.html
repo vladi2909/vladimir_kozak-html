@@ -1,0 +1,23 @@
+<div class="header">
+    
+    <h3 class="header__title">{{ title }}</h3>
+
+    <div>
+        
+        <input type="text" class="header__input" [(ngModel)]="note.name" (ngModelChange)="noteChanged($event)">
+    
+        <button
+            class="header__btn"
+            (click)="save(note)"
+            [disabled]="!canSave()">
+            Save
+        </button>
+
+        <div class="header__noteSaved" [hidden]="!isNoteSaved">note saved</div>
+        <p class="header__error" [hidden]="canSave()">Invalid note</p>
+
+        <p class="header__p" [title]="note.name"> {{note.id}} {{ note.name }}</p>
+        
+    </div>
+    
+</div>

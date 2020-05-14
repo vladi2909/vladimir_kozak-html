@@ -1,0 +1,36 @@
+@import "fonts.scss";
+
+$font-stack: 'Abril Fatface', sans-serif;
+$color-red: #f54260;
+
+@mixin large-text {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+body {
+    font-family: $font-stack;
+}
+
+.container {
+    padding-top: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    &__title {
+        @include large-text;
+        color: $color-red;
+        text-align: center; 
+    }
+
+    &__logo {
+        background-image: url('../assets/webpack-logo.png');
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+
+

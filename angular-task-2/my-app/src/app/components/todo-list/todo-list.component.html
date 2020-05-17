@@ -1,0 +1,45 @@
+<div class="header">
+    <h3 class="header__title">todo-list!</h3>
+    <input 
+        type="text"
+        class="todo-input"
+        [(ngModel)]="todoTitle"
+    >
+    <button class="header__btn" (click)="addTodo()">Save</button>
+    
+    <div class="todo-item" *ngFor="let todo of todos">
+        <div class="todo-item-left">
+            <input type="checkbox" class="custom-checkbox" [(ngModel)]="todo.completed">
+            <div
+                *ngIf="!todo.editing; else editingTodo" 
+                class="todo-item-label"
+                [ngClass]="{ 'completed' : todo.completed }"
+                (dblclick)="editTodo(todo)"
+                >
+                {{ todo.id }}. {{ todo.title }}
+            </div>
+            <ng-template #editingTodo>
+                <input
+                    type="text"
+                    class="todo-item-edit"
+                    [(ngModel)]="todo.title"
+                    (blur)="doneEdit(todo)"
+                    (keyup.enter)="doneEdit(todo)"
+                    (keyup.enter)="cancelEdit(todo)"
+                    autofocus
+                >
+            </ng-template>
+        </div>
+        <div class="remove-item" (click)="deleteTodo(todo.id)">
+            &times;
+        </div>
+    </div>
+
+    <div class="extra-container">
+        <div>
+            <label class="check-all"><input type="checkbox" (change)="checkAllTodos()">Check All</label>
+        </div>
+        <div class="item-left">{{ remaining() }} items left</div>
+    </div>
+
+</div>

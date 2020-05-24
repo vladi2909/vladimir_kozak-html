@@ -1,0 +1,62 @@
+<div class="header" *ngIf="!todoListService.isLoading">
+    <h3 class="header__title">todo-list!</h3>
+    <div class="control">
+        <input
+            class="control__todo-input"
+            type="text"
+            [(ngModel)]="todoListService.todoTitle"
+            (keyup.enter)="todoListService.addTodo()"
+            placeholder="what need to do..."
+        >
+        <button class="control__btn" (click)="todoListService.addTodo()">Save</button>
+    </div>
+
+    <div class="todo-item" *ngFor="let todo of todoListService.todos; let i = index">
+        <div class="todo-item-left">
+            <input
+                class="todo-item-left__custom-checkbox"
+                type="checkbox"
+                [(ngModel)]="todo.completed"
+            >
+            <div 
+                *ngIf="!todo.editing; else editingTodo"
+                class="todo-item-label"
+                (dblclick)="todoListService.editTodo(todo)"
+                [ngClass]=" { 'completed' : todo.completed} ">
+                {{ i + 1 }}. {{ todo.title }} 
+            </div>
+            <ng-template #editingTodo>
+                <input
+                    type="text"
+                    class="todo-item__edit"
+                    [(ngModel)]="todo.title"
+                    (blur)="todoListService.doneEdit(todo)"
+                    (keyup.enter)="todoListService.doneEdit(todo)"
+                    (keyup.esc)="todoListService.cancelEdit(todo)"
+                    autofocus
+                >
+            </ng-template>
+        </div>
+        <div class="remove-item" (click)="todoListService.deleteTodo(todo.id)">
+            &times;
+        </div>
+    </div>
+    <div class="extra-container">
+        <label class="check-all" (change)="todoListService.checkAllTodos()">
+            <input type="checkbox" class="check-all__input">
+            <div>Check All</div>
+        </label>
+        <ng-container *ngIf="true">
+            <div class="extra-container__item-left">
+                {{ todoListService.remaining() }} items left
+            </div>
+        </ng-container> 
+    </div>
+
+    <button class="header__btn" (click)="todoListService.save()">save localStorage</button>
+</div>
+
+
+<div class="loading" *ngIf="todoListService.isLoading">
+    loading...
+</div>

@@ -7,28 +7,30 @@ import { delay } from 'rxjs/operators';
 export class TodoListService {
 
   public isLoading: boolean = true;
-
+  public savedTodoList: Todo[] = [];
   todos: Todo[];
-
+  public todoList: Todo[] = [];
   todoTitle: string;
   idForTodo: number;
   beforeEditCache: string;
 
+
   constructor(
     private _todoListDataService: TodoListDataService
   ) {
-    this._todoListDataService.loadTodoList()
+    this._todoListDataService.todoList$
     .pipe(
       delay(1000)
     )
     .subscribe((todoList: Todo[]) => {
       this.initTodoList(todoList);
     });
-
     this.todoTitle = '';
     this.idForTodo = 1;
     this.todos = [];
     this.beforeEditCache = '';
+
+
    }
 
    private initTodoList(todoList: Todo[]): void {
@@ -40,24 +42,23 @@ export class TodoListService {
     if (this.todoTitle.trim().length === 0) {
       return;
     }
-
     this.todos.push({
       id: this.idForTodo,
       title: this.todoTitle,
       completed: false,
       editing: false
     })
-
+    
     this.todoTitle = '';
     this.idForTodo++;
   }
 
-  editTodo(todo: Todo): void {
+  public editTodo(todo: Todo): void {
     this.beforeEditCache = todo.title;
     todo.editing = true;
   }
 
-  doneEdit(todo: Todo): void {
+  public doneEdit(todo: Todo): void {
     if (todo.title.trim().length === 0) {
       todo.title = this.beforeEditCache;
     }
@@ -65,26 +66,29 @@ export class TodoListService {
     todo.editing = false;
   }
 
-  cancelEdit(todo: Todo): void {
+  public cancelEdit(todo: Todo): void {
     todo.title = this.beforeEditCache;
     todo.editing = false;
   }
 
-  deleteTodo(id: number): void {
+  public deleteTodo(id: number): void {
     this.todos = this.todos.filter(todo => todo.id !== id);
   }
 
-  remaining(): number {
+  public remaining(): number {
     return this.todos.filter(todo => !todo.completed).length;
   }
 
-  checkAllTodos(): void {
+  public checkAllTodos(): void {
     this.todos.forEach(todo => todo.completed = (<HTMLInputElement>event.target).checked)
   }
 
-  // public static fromJSON(json: any): Todo {
-  //   return Boolean(json)
-  //     ? new Todo(json.id, json.title, json.completed, json.editing)
-  //     : null;
-  // }
+  public save(): void {
+     this.savedTodoList = this.todos.map((todos: Todo) => {
+       const currentTodo: Todo = this.todoList.find((otherTodo: Todo) => otherTodo.id === todos.id);
+       return currentTodo || todos;
+     });
+     this._todoListDataService.saveTodoList(this.savedTodoList);
+   }
+ 
 }

@@ -3,18 +3,18 @@
         "id": 1,
         "title": "feed the cat",
         "completed": false,
-        "editing": true 
+        "editing": false 
     },
     {
         "id": 2,
         "title": "call friends",
         "completed": false,
-        "editing": true 
+        "editing": false 
     },
     {
         "id": 3,
         "title": "buy a birthday present",
         "completed": false,
-        "editing": true
+        "editing": false
     }
 ]

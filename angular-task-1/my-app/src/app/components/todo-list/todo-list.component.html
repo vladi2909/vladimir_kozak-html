@@ -52,8 +52,10 @@
             </div>
         </ng-container> 
     </div>
+
+    <button class="header__btn" (click)="todoListService.save()">save localStorage</button>
 </div>
-<!-- <button (click)="trigger()">trigger</button> -->
+
 
 <div class="loading" *ngIf="todoListService.isLoading">
     loading...

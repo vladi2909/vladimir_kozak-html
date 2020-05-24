@@ -7,6 +7,7 @@
     font-size: 1.1em;
     background: linear-gradient(#3EB9DE, #3A80DE);
     border-radius: 10px;
+    text-align: center;
     
     &__title {
         padding: 9px;
@@ -15,6 +16,19 @@
         background: rgba(11,86,139,0.25);
         border-radius: 6px;
     }
+
+    &__btn {
+        padding: 8px 24px;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    &__btn:hover {
+        background-color: #E5EFF5;
+    }
+    
  }
 
 .control {

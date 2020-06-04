@@ -6,11 +6,15 @@ import { AutofocusFixModule } from 'ngx-autofocus-fix';
 import { TodoListService } from './services/todo-list/todo-list.service';
 import { TodoListDataService } from './services/todo-list-data/todo-list-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './todo/todo.component';
+import { TodoDetailsComponent } from './todo-details/todo-details.component';
 
 
 @NgModule({
   declarations: [
-    TodoListComponent
+    TodoListComponent,
+    TodoComponent,
+    TodoDetailsComponent
   ],
   imports: [
     CommonModule,

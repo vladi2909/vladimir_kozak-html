@@ -1,0 +1,12 @@
+.app {
+    padding: 15px;
+}
+.navigation__item {
+    padding-right: 15px;
+    font-size: 1.4em;
+    text-decoration: none;
+
+    &.active {
+        color: red;
+    }
+}

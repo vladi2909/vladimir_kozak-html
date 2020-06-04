@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Todo } from 'src/app/interfaces/Todo';
+import { Todo } from 'src/app/todo-list/models/todo';
 import { TodoListDataService } from '../todo-list-data/todo-list-data.service';
 import { delay } from 'rxjs/operators';
+import { ReplaySubject, Subject } from 'rxjs';
 
 @Injectable()
 export class TodoListService {
@@ -13,6 +14,9 @@ export class TodoListService {
   todoTitle: string;
   idForTodo: number;
   beforeEditCache: string;
+
+  public savedTodoList$: ReplaySubject<Todo[]> = new ReplaySubject<Todo[]>(1);
+  private destroySubject$: Subject<boolean> = new Subject<boolean>();
 
 
   constructor(
@@ -29,9 +33,22 @@ export class TodoListService {
     this.idForTodo = 1;
     this.todos = [];
     this.beforeEditCache = '';
-
-
    }
+
+  //  public selectTodo(todo: Todo) {
+  //   if (this.canSelect(todo)) {
+  //     this.selectedTodo = todo;
+  //   }
+  // }
+
+  // public canSelect(todo: Todo): boolean {
+  //   return Boolean(todo)
+  //     && (!this.selectedTodo || this.selectedTodo.id !== todo.id);
+  // }
+
+  public isTodoSelected(todo: Todo) {
+
+  }
 
    private initTodoList(todoList: Todo[]): void {
     this.todos = todoList;

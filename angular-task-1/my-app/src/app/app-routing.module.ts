@@ -5,6 +5,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CanProceedContactsGuard } from './guards/can-proceed-contacts.guard';
 
 
 const routes: Routes = [
@@ -13,21 +14,9 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'todo',
-    component: TodoListComponent
-  },
-  {
-    path:'todo/:id',
-    component: TodoListComponent
-  },
-  {
-    path:'todo-list',
-    redirectTo: '/todos',
-    pathMatch: 'full'
-  },
-  {
     path: 'contacts',
-    component: ContactsComponent
+    component: ContactsComponent,
+    canActivate: [CanProceedContactsGuard]
   },
   {
     path: 'about',
@@ -35,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: NotFoundComponent
+    loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
   }
 ];
 

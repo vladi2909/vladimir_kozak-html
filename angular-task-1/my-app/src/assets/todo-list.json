@@ -1,20 +1,14 @@
 [
     {
         "id": 1,
-        "title": "feed the cat",
-        "completed": false,
-        "editing": false 
+        "name": "feed the cat"
     },
     {
         "id": 2,
-        "title": "call friends",
-        "completed": false,
-        "editing": false 
+        "name": "call friends" 
     },
     {
         "id": 3,
-        "title": "buy a birthday present",
-        "completed": false,
-        "editing": false
+        "name": "buy a birthday present"
     }
 ]

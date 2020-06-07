@@ -8,24 +8,28 @@ import { TodoListModule } from './todo-list/todo-list.module';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { TodoListRoutingModule } from './todo-list/todo-list-routing.module';
+import { CanProceedContactsGuard } from './guards/can-proceed-contacts.guard';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     ContactsComponent,
-    HomeComponent,
-    NotFoundComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    TodoListModule
+    TodoListModule,
+    TodoListRoutingModule,
+    AppRoutingModule
   ],
   exports: [AppComponent],
-  providers: [],
+  providers: [
+    CanProceedContactsGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

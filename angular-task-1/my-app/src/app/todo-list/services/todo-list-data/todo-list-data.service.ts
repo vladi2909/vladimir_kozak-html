@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Todo } from 'src/app/todo-list/models/todo';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject, ReplaySubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { TodoListService } from '../todo-list/todo-list.service';
+import { map, tap } from 'rxjs/operators';
+import { TodoListSettings } from '../../models/todo-list-settings';
+import { TodoListSnapshot } from '../../models/todo-list-snapshot';
 
 @Injectable()
 export class TodoListDataService {
@@ -11,44 +14,47 @@ export class TodoListDataService {
 
   private _baseUrl: string = 'assets';
 
-  public todoList$: Observable<Todo[]> = this.loadTodoList();
+  public todoListSnapshot$: ReplaySubject<TodoListSnapshot> = new ReplaySubject<TodoListSnapshot>(1);
 
   constructor(
     private _httpClient: HttpClient
   ) { }
 
-
-  private loadTodoList(): Observable<Todo[]> {
-    const LSData: any = localStorage.getItem(TodoListDataService.todoListLSKey);
-      if (LSData) {
-        return of (
-          (JSON.parse(LSData) || [])
-          .filter(Boolean)
-          .map(TodoListDataService.toJSON)
+  public loadTodoList(): void {
+    const LSData: string = localStorage.getItem(TodoListDataService.todoListLSKey);
+    if (LSData) {
+      this.todoListSnapshot$.next(
+        TodoListSnapshot.fromJSON(JSON.parse(LSData))
+      );
+    } else {
+      this._httpClient.get<Todo[]>(`${this._baseUrl}/todo-list.json`)
+        .pipe(
+          tap((json: any) => {
+            this.todoListSnapshot$.next(
+              new TodoListSnapshot(
+                '',
+                false,
+                (json || []).filter(Boolean).map(Todo.fromJSON)
+              )
+            );
+          })
         );
-      } else {
-        return this._httpClient.get<Todo[]>(`${this._baseUrl}/todo-list.json`);
-      }
-  }
- 
-  public static toJSON(todos: Todo): any {
-    return Boolean(todos)
-      ? {
-        id: todos.id,
-        title: todos.title,
-        completed: todos.completed,
-        editing: todos.editing
-      }
-      : {};
+    }
   }
 
-  public saveTodoList(todos: Todo[]): void {
+  public loadSettings(): Observable<TodoListSettings> {
+    return this._httpClient.get<TodoListSettings>(`${this._baseUrl}/todo-list-settings.json`);
+
+  }
+
+  public save(uls: TodoListSnapshot): void {
     localStorage.setItem(
       TodoListDataService.todoListLSKey,
       JSON.stringify(
-        todos.map(TodoListDataService.toJSON)
+        TodoListSnapshot.toJSON(uls)
       )
     );
+    this.loadTodoList();
   }
 
 }

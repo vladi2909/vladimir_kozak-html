@@ -1,1 +1,23 @@
-<p>todo works!</p>
+<div
+    class="app--todo"
+    [class.selected]="isTodoSelected"
+    (dblclick)="editTodo()" (keyup.enter)="editTodo()"
+   >
+    <div class="app--todo--item">
+        <input type="checkbox">
+
+        <div class="app--todo--index">{{ index + 1 }}</div>
+        <div class="app--todo--name" >
+
+            <div *ngIf="isEditMode">
+                <input type="text" [(ngModel)]="todo.name" autofocus>
+            </div>
+            <div *ngIf="!isEditMode" >
+                {{ todo.name }}
+            </div>
+        </div>
+
+    </div>    
+    
+    <div class="app--remove-item">&times;</div>
+</div>

@@ -1,19 +1,17 @@
 <div class="app">
   <div class="navigation">
-    <a class="navigation__item"
+    <a class="navigation--item"
       routerLink=""
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }">
       home
     </a>
-    <a class="navigation__item" routerLink="/todo" routerLinkActive="active">todo</a>
-    <a class="navigation__item" routerLink="/contacts" routerLinkActive="active">contacts</a>
-    <a class="navigation__item" routerLink="about" routerLinkActive="active">about us</a>
+    <a class="navigation--item" routerLink="/todo" routerLinkActive="active">todo</a>
+    <a class="navigation--item" routerLink="/contacts" routerLinkActive="active">contacts</a>
+    <a class="navigation--item" routerLink="about" routerLinkActive="active">about us</a>
   </div>
   <div class="router-outlet">
     <router-outlet></router-outlet>
   </div>
-
-  <!-- <app-todo-list></app-todo-list> -->
 </div>
 

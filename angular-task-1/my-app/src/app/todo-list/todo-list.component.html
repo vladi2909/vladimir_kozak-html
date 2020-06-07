@@ -1,4 +1,74 @@
-<div class="header" *ngIf="!todoListService.isLoading">
+<div class="app--todo" *ngIf="!todoListService.isLoading">
+    <h3 class="app--todo--title">todo-list!</h3>
+    
+    <div class="app--control">
+        <input
+            type="text"
+            class="app--control--todo-input"
+            [(ngModel)]="todoListService.todoSearch"
+            (ngModelChange)="todoListService.search()"
+            >
+        <button
+            class="app--control--btn"
+            (click)="todoListService.save()">
+            Save
+        </button>
+        
+    </div>
+
+    <div
+        class="app--todo-list--action-list"
+        *ngIf="todoListService.settings">
+        <button
+            class="app--todo-list--action"
+            (click)="todoListService.sort()"
+            *ngIf="todoListService.settings.isSortActive">
+            sort
+        </button>
+    </div>
+    
+    <div class="app--todo-list">
+        <div class="app--todo-list--todo">
+            
+            <app-todo
+                *ngFor="let todo of todoListService.todoList; let i = index"
+                [todo]="todo"
+                [index]="i"
+                [isTodoSelected]="todoListService.isTodoSelected(todo)"
+                (onTodoSelect)="selectTodo($event.id)"
+            >
+            </app-todo>
+        </div>
+    </div>
+</div>
+<div class="app--todo-list--selected-todo">
+    <!-- <router-outlet></router-outlet> -->
+</div>
+    
+<div class="app--todo-list--loading" *ngIf="todoListService.isLoading">
+    loading...
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="header" *ngIf="!todoListService.isLoading">
     <h3 class="header__title">todo-list!</h3>
     <div class="control">
         <input
@@ -10,6 +80,7 @@
         >
         <button class="control__btn" (click)="todoListService.addTodo()">Save</button>
     </div>
+
 
     <div class="todo-item" *ngFor="let todo of todoListService.todos; let i = index">
         <div class="todo-item-left">
@@ -59,4 +130,4 @@
 
 <div class="loading" *ngIf="todoListService.isLoading">
     loading...
-</div>
+</div> -->

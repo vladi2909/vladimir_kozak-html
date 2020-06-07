@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TodoListComponent } from './todo-list.component';
-import { AutofocusFixModule } from 'ngx-autofocus-fix';
 import { TodoListService } from './services/todo-list/todo-list.service';
 import { TodoListDataService } from './services/todo-list-data/todo-list-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
+import { AutofocusFixModule } from 'ngx-autofocus-fix';
 
 
 @NgModule({
   declarations: [
-    TodoListComponent,
     TodoComponent,
+    TodoListComponent,
     TodoDetailsComponent
   ],
   imports: [

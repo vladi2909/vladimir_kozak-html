@@ -1,0 +1,25 @@
+.app--todo {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    margin: 3px;
+    // color: #fff;
+    border-radius: 4px;
+    background: rgba(11,86,139,0.25);
+
+    &.selected {
+        background-color: #DAA520;
+    }
+
+    &.ff {
+        text-decoration: line-through;
+    }
+
+    &--item {
+        display: flex;
+    }
+}
+
+.app--remove-item {
+    right: 0;
+}

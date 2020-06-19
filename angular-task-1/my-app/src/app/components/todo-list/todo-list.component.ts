@@ -1,73 +1,53 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Todo } from '../../interfaces/Todo';
+import { Component, OnInit, ViewChildren, OnDestroy } from '@angular/core';
+import { TodoComponent } from '../todo/todo.component';
+import { TodoListService } from 'src/app/services/todo-list/todo-list.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Todo } from 'src/app/models/todo';
+import { combineLatest, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-todo-list',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
-export class TodoListComponent implements OnInit {
-  @Input()
-  todos: Todo[];
-  todoTitle: string;
-  idForTodo: number;
-  beforeEditCache: string;
+export class TodoListComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  @ViewChildren(TodoComponent)
+  public todoComponents: TodoComponent[];
+
+  private sub: Subscription = null;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    public todoListService: TodoListService
+  ) { }
 
   ngOnInit(): void {
-    this.todoTitle = '';
-    this.idForTodo = 1;
-    this.todos = [];
-    this.beforeEditCache = '';
+    // tslint:disable-next-line: deprecation
+    this.sub = combineLatest(
+      this.activatedRoute.params,
+      this.todoListService.savedtodoList$
+    ).subscribe(([params, todoList]: [Params, Todo[]]) => {
+      // tslint:disable-next-line: radix
+      const currentTodoId: number = params ? parseInt(params.id) : null;
+      if (todoList) {
+        const currentTodo: Todo = this.todoListService.todoList
+          .find((todo: Todo) => todo.id === currentTodoId);
+        if (currentTodo) {
+          this.todoListService.selectTodo(currentTodo);
+        } else {
+          this.selectTodo(todoList[0].id);
+        }
+      }
+    });
   }
 
-  addTodo(): void {
-    if (this.todoTitle.trim().length === 0) {
-      return;
-    }
-
-    this.todos.push({
-      id: this.idForTodo,
-      title: this.todoTitle,
-      completed: false,
-      editing: false
-    })
-
-    this.todoTitle = '';
-    this.idForTodo++;
+  public selectTodo(todoId: number): void {
+    this.router.navigate(['/todo', todoId]);
   }
 
-  editTodo(todo: Todo): void {
-    this.beforeEditCache = todo.title;
-    todo.editing = true;
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
-
-  doneEdit(todo: Todo): void {
-    if (todo.title.trim().length === 0) {
-      todo.title = this.beforeEditCache;
-    }
-
-    todo.editing = false;
-  }
-
-  cancelEdit(todo: Todo): void {
-    todo.title = this.beforeEditCache;
-    todo.editing = false;
-  }
-
-
-  deleteTodo(id: number): void {
-    this.todos = this.todos.filter(todo => todo.id !== id);
-  }
-
-  remaining(): number {
-    return this.todos.filter(todo => !todo.completed).length;
-  }
-
-  checkAllTodos(): void {
-    this.todos.forEach(todo => todo.completed = (<HTMLInputElement>event.target).checked)
-  }
-
 }

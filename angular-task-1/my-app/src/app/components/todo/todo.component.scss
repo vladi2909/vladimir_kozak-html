@@ -1,0 +1,44 @@
+.app--todo {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 8px;
+
+    &--content {
+        display: flex;
+        align-items: center;
+    }
+
+    &--check {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
+    }
+
+    &--index {
+        margin-right: 10px;
+    }
+    &--text {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &--date {
+        font-size: .8em;
+        margin-top: 6px;
+        margin-right: 20px;
+    }
+
+    &--block {
+        display: flex;
+    }
+}
+
+.selected {
+    background: rgba(11,86,139,0.35);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #666;
+}

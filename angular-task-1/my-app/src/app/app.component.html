@@ -1,4 +1,15 @@
-<div class="container">
-  <app-todo-list></app-todo-list>
-</div>
+<div class="app">
+  <div class="app--navigation">
+    <a class="app--navigation-item"
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a class="app--navigation-item" routerLink="/todo" routerLinkActive="active">Todo</a>
+    <a class="app--navigation-item" routerLink="/about" routerLinkActive="active">About</a>
+    <a class="app--navigation-item" routerLink="/sign-up" routerLinkActive="active">Sign up</a>
+  </div>
 
+  <div class="app--router-outlet">
+    <router-outlet></router-outlet>
+  </div>
+</div>

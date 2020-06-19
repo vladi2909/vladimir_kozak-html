@@ -1,0 +1,21 @@
+<div class="app--todo"
+    [class.selected]="isTodoSelected"
+    *ngIf="todo"
+    >
+    <div class="app--todo--content">
+        <input type="checkbox" class="app--todo--check" [(ngModel)]="todo.completed">
+        <div class="app--todo--index">{{ index + 1 }}</div>
+        <div *ngIf="isEditMode">
+            <input type="text" [(ngModel)]="todo.name" (dblclick)="editTodo()" (keyup.enter)="editTodo()" autofocus>
+        </div>
+        <div *ngIf="!isEditMode" (dblclick)="editTodo()" [ngClass]="{ 'completed' : todo.completed }">
+            {{ todo.name }}
+        </div>
+        
+    </div>
+    <div class="app--todo--block">
+        <div class="app--todo--date">{{ todo.date | date: 'short'}}</div>
+        <div (click)="deleteElement()">&#10006;</div>
+    </div>
+    
+</div>

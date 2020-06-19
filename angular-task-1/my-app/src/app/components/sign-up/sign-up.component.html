@@ -1,0 +1,48 @@
+<form
+    class="app--sign-up"
+    #signUpForm="ngForm"
+    (ngSubmit)="signUp([nameModel, emailModel, passwordModel, signUpForm])">
+
+    <div class="app--sign-up--field">
+        <span class="app--sign-up--field-name">name: </span>
+        <input
+            class="app--sign-up--field-value"
+            name="userName"
+            type="text"
+            [(ngModel)]="name"
+            #nameModel="ngModel">
+    </div>
+
+    <div class="app--sign-up--field">
+        <span class="app--sign-up--field-name">email: </span>
+        <input
+            class="app--sign-up--field-value"
+            [class.invalid]="emailModel.touched && emailModel.invalid"
+            name="userEmail"
+            type="email"
+            [(ngModel)]="email"
+            #emailModel="ngModel"
+            pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+            required>
+        <span
+            class="app--sign-up--field-error"
+            *ngIf="emailModel.touched && emailModel.invalid">
+            please provide correct email
+        </span>
+    </div>
+
+    <div class="app--sign-up--field">
+        <span class="app--sign-up--field-name">password: </span>
+        <input
+            class="app--sign-up--field-value"
+            name="userPassword"
+            type="password"
+            [(ngModel)]="password"
+            #passwordModel="ngModel">
+    </div>
+
+    <button
+        type="submit"
+        [disabled]="nameModel.invalid || emailModel.invalid || passwordModel.invalid">
+        sign up
+    </button>

@@ -1,55 +1,27 @@
-<div class="header">
-    <h3 class="header__title">todo-list!</h3>
-    <div class="control">
-        <input
-            class="control__todo-input"
-            type="text"
-            [(ngModel)]="todoTitle"
-            (keyup.enter)="addTodo()"
-            placeholder="what need to do..."
-        >
-        <button class="control__btn" (click)="addTodo()">Save</button>
+<div class="app--container" *ngIf="!todoListService.isLoading">
+    <h3>Todo List</h3>
+    <div class="app--control">
+        <input type="text"
+            #todoText
+            (keyup.enter)="todoListService.addItem(todoText.value)"
+            [(ngModel)]="todoListService.todoTitle">
+        <button (click)="todoListService.addItem(todoText.value)">save</button>
+        <button  (click)="todoListService.save()">localhost</button>
     </div>
 
-    <div class="todo-item" *ngFor="let todo of todos; let i = index">
-        <div class="todo-item-left">
-            <input
-                class="todo-item-left__custom-checkbox"
-                type="checkbox"
-                [(ngModel)]="todo.completed"
-            >
-            <div 
-                *ngIf="!todo.editing; else editingTodo"
-                class="todo-item-label"
-                (dblclick)="editTodo(todo)"
-                [ngClass]=" { 'completed' : todo.completed} ">
-                {{ i + 1 }}. {{ todo.title }} 
-            </div>
-            <ng-template #editingTodo>
-                <input
-                    type="text"
-                    class="todo-item__edit"
-                    [(ngModel)]="todo.title"
-                    (blur)="doneEdit(todo)"
-                    (keyup.enter)="doneEdit(todo)"
-                    (keyup.esc)="cancelEdit(todo)"
-                    autofocus
-                >
-            </ng-template>
-        </div>
-        <div class="remove-item" (click)="deleteTodo(todo.id)">
-            &times;
-        </div>
-    </div>
-    <div class="extra-container">
-        <label class="check-all" (change)="checkAllTodos()">
-            <input type="checkbox" class="check-all__input">
-            <div>Check All</div>
-        </label>
-        <ng-container *ngIf="true">
-            <div class="extra-container__item-left">
-                {{ remaining() }} items left
-            </div>
-        </ng-container> 
+    <div class="app--todo-list">
+        <app-todo
+            *ngFor="let todo of todoListService.todoList; let i = index"
+            [todo]="todo"
+            [index]="i"
+            [isTodoSelected]="todoListService.isTodoSelected(todo)"
+            (inTodoSelect)="selectTodo($event.id)"
+            (elementDeleted)="todoListService.onElementDeleted(todo)">
+        </app-todo>
     </div>
 </div>
+
+<div class="app--todo-list--loading" *ngIf="todoListService.isLoading">
+    loading...
+</div>
+
